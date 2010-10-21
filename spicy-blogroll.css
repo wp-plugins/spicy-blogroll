@@ -1,1 +1,23 @@
-#sb_popup{color:#36F;width:250px;min-height:300px;border:2px solid #08C;background:#fdfdfd;padding:4px 4px;display:none;position:absolute;filter:alpha(opacity=85);opacity:.85;}.sb_link{font-weight:bold;}.sb_desc{font-style:italic;}.sb_devlink{font-style:italic;}
+#sb_popup{
+  color:#3366FF;
+  width:250px;
+  min-height:300px;
+  border:2px solid #0088CC;
+  background: #fdfdfd;
+  padding: 4px 4px;
+  display: none;
+  position: absolute;
+  /* for IE */
+  filter:alpha(opacity=85);
+  /* CSS3 standard */
+  opacity:0.85;
+}
+.sb_link{
+  font-weight:bold;
+}
+.sb_desc{
+  font-style:italic;
+}
+.sb_devlink{
+  font-style:italic;
+}

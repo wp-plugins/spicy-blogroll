@@ -55,8 +55,8 @@ add_action('admin_init', 'sbr_admin_init');
 add_action('admin_head', 'sbr_HeadAction');
 // action and filter rountines
 function sbr_activate_action(){
-  global $options;
-  foreach ($options as $value){
+  global $sbr_options;
+  foreach ($sbr_options as $value){
 	if (array_key_exists('std',$value)){
 	  update_option($value['id'], $value['std']);
     }
@@ -124,8 +124,8 @@ function SpicyBlogRoll_ScriptsAction(){
 }
 // if we're on the options settings page then set up some stuff
 if (is_admin()){
-  global $options;
-  $options = array (
+  global $sbr_options;
+  $sbr_options = array (
   array("name" => PLUGIN_NAME." Options",
 		"type" => "title"),
   array("name" => "General Options",
@@ -242,7 +242,7 @@ if (is_admin()){
 }
 // main options menu page (in the dashboard)
 function sbr_admin(){
-  global $options;
+  global $sbr_options;
   $i=0;
   // temp IE8 fix
   if (get_option(SHORT_NAME.'_IE8_fix',false)){
@@ -258,7 +258,7 @@ function sbr_admin(){
     echo '<div id="message" class="sb_updated"><p><strong>'.PLUGIN_NAME.' settings saved.</strong></p></div>';
   }
   if (isset($_REQUEST['reset'])){
-    foreach ($options as $value){
+    foreach ($sbr_options as $value){
 	  if (array_key_exists('std',$value)){
 	     update_option($value['id'], $value['std']);
       }
@@ -266,7 +266,7 @@ function sbr_admin(){
     echo '<div id="message" class="sb_updated"><p><strong>'.PLUGIN_NAME.' settings reset.</strong></p></div>';
   }
   $textarea_ctr = 0;
-  foreach ($options as $value) {
+  foreach ($sbr_options as $value) {
     switch ( $value['type'] ) {
       case "open":
         break;
@@ -390,10 +390,10 @@ function scramble($text1,$rng){
   return $text2;
 }
 function sbr_add_admin() {
-  global $options;
+  global $sbr_options;
   if ($_GET['page'] == SBR_ADMIN_PAGE){
 	if ('save' == $_REQUEST['action']){
-      foreach ($options as $value){
+      foreach ($sbr_options as $value){
 	    if(isset($_REQUEST[$value['id']])){
 		  update_option($value['id'], $_REQUEST[$value['id']]);
 		}else{
@@ -403,7 +403,7 @@ function sbr_add_admin() {
 	  header("Location: ".SBR_ADMIN_URL."&saved=true");
       die;
     }else if('reset' == $_REQUEST['action']){
-	  foreach ($options as $value){
+	  foreach ($sbr_options as $value){
 	    delete_option( $value['id'] );
       }
 	  header("Location: ".SBR_ADMIN_URL."&reset=true");

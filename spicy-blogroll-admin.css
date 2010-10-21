@@ -1,1 +1,129 @@
-.sbr_wrap{width:740px;}.sbr_section{border:1px solid #ddd;border-bottom:0;background:#f9f9f9;overflow:hidden;}.sbr_opts label{font-size:12px;font-weight:700;width:170px;display:block;float:left;}.sbr_input{padding:30px 10px;border-bottom:1px solid #ddd;border-top:1px solid #fff;}.sbr_opts small{display:block;float:right;width:300px;color:#777;}.sbr_opts input[type="text"],.sbr_opts select{width:200px;font-size:12px;padding:4px;color:#333;line-height:1em;background:#f3f3f3;}.sbr_input input:focus,.sbr_input textarea:focus{background:#fff;}.sbr_input textarea{width:200px;height:175px;font-size:12px;padding:4px;color:#333;line-height:1.5em;background:#f3f3f3;}.sbr_title h3{cursor:pointer;font-size:1em;text-transform:uppercase;margin:0;font-weight:bold;color:#232323;float:left;padding:14px 4px;}.sbr_title{cursor:pointer;border-bottom:1px solid #ddd;background:#eee;padding:0;}.sbr_title h3 img.inactive{margin:-8px 10px 0 2px;width:32px;height:32px;background:url('images/pointer.png') no-repeat 0 0;float:left;-moz-border-radius:6px;border:1px solid #ccc;}.sbr_title h3 img.active{margin:-8px 10px 0 2px;width:32px;height:32px;background:url('images/pointer.png') no-repeat 0 -32px;float:left;-moz-border-radius:6px;-webkit-border-radius:6px;border:1px solid #ccc;}.sbr_title h3:hover img{border:1px solid #999;}.sbr_title span.submit{display:block;float:right;margin:0;width:17%;padding:14px 0;}.sbr_title span.checkbox{float:right;font-size:10px;background:#eee;padding:17px 8px 0 0;}.sbr_notes{font-size:9px;margin-bottom:10px;}.sbr_notes img{vertical-align:text-top;}.warning{color:red;font-weight:bold;}.clearfix{clear:both;}.sbr_table th,.sbr_table td{border:1px solid #bbb;padding:10px;text-align:center;}.sbr_table th,.sbr_table td.feature{border-color:#888;}.sb_updated{margin:5px 0 15px;background-color:#EFE;border-color:#8F8;-moz-border-radius:3px 3px 3px 3px;border-style:solid;border-width:1px;padding:0 .6em;}
+.sbr_wrap{
+	width:740px;
+}
+.sbr_section{
+	border:1px solid #ddd;
+	border-bottom:0px;
+	background:#f9f9f9;
+	overflow: hidden;
+}
+.sbr_opts label{
+	font-size:12px;
+	font-weight:700;
+	width:170px;
+	display:block;
+	float:left;
+}
+.sbr_input {
+	padding:30px 10px;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #fff;
+}
+.sbr_opts small{
+	display:block;
+	float:right;
+	width:300px;
+	color:#777;
+}
+.sbr_opts input[type="text"], .sbr_opts select{
+	width:200px;
+	font-size:12px;
+	padding:4px;
+	color:#333;
+	line-height:1em;
+	background:#f3f3f3;
+}
+.sbr_input input:focus, .sbr_input textarea:focus{
+		background:#fff;
+}
+.sbr_input textarea{
+	width:200px;
+	height:175px;
+	font-size:12px;
+	padding:4px;
+	color:#333;
+	line-height:1.5em;
+	background:#f3f3f3;
+}
+.sbr_title h3 {
+	cursor:pointer;
+	font-size:1em;
+	text-transform: uppercase;
+	margin:0;
+	font-weight:bold;
+	color:#232323;
+	float:left;
+	padding:14px 4px;
+}
+.sbr_title{
+	cursor:pointer;
+	border-bottom:1px solid #ddd;
+	background:#eee;
+	padding:0;
+}
+.sbr_title h3 img.inactive{
+	margin:-8px 10px 0 2px;
+	width:32px;
+	height:32px;
+	background:url('images/pointer.png') no-repeat 0 0;
+	float:left;
+	-moz-border-radius:6px;
+	border:1px solid #ccc;
+}
+.sbr_title h3 img.active{
+	margin:-8px 10px 0 2px;
+	width:32px;
+	height:32px;
+	background:url('images/pointer.png') no-repeat  0 -32px;
+	float:left;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border:1px solid #ccc;
+}
+.sbr_title h3:hover img{
+	border:1px solid #999;
+}
+.sbr_title span.submit{
+	display:block;
+	float:right;
+	margin:0;
+	width:17%;
+	padding:14px 0;
+}
+.sbr_title span.checkbox{
+	float:right;
+	font-size:10px;
+	background:#eee;
+	padding:17px 8px 0 0;
+}
+.sbr_notes{
+	font-size:9px;
+	margin-bottom:10px	
+}
+.sbr_notes img{
+	vertical-align:text-top;
+}
+.warning{
+	color:red;
+	font-weight:bold;
+}
+.clearfix{
+	clear:both;
+}
+.sbr_table th, .sbr_table td{
+	border:1px solid #bbb;
+	padding:10px;
+	text-align:center;
+}
+.sbr_table th, .sbr_table td.feature{
+	border-color:#888;
+}
+.sb_updated{
+  margin: 5px 0 15px;
+  background-color:#EEFFEE;
+  border-color:#88FF88;
+  -moz-border-radius:3px 3px 3px 3px;
+  border-style:solid;
+  border-width:1px;
+  padding:0 0.6em;
+}

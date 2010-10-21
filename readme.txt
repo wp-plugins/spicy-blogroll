@@ -23,16 +23,21 @@ Spicy Blogroll allows you to spread more link love to your favorite bloggers and
 
 Plugin by Michael Pedzotti. Concept is based on the Live Blogroll plugin by Vladimir Prelovac but with a really slick options page with many more adjustable options.
 
+
 == Changelog ==
+
+= 0.11 =
+Changed a global variable name ($options=>$sbr_options) to avoid clashing with one or more other plugins.
 
 = 0.1 =
 * Initial release
 
+
 == Upgrade Notice ==
 
-= 0.1 =
-Initial release.
-
+= 0.11 =
+Changed a global variable name ($options=>$sbr_options) to avoid clashing with one or more other plugins.
+If the plugin control panel was not showing properly it was because of this clash.
 
 == Installation ==
 
