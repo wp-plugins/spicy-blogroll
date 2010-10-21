@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Spicy Blogroll
-Version: 0.1
+Version: 0.11
 Description: Spices up your regular Blogroll by showing recent post excerpts for each of your links in the Blogroll widget. Once you've set up the plugin write a post about it and let everyone on your blogroll know about it. Change options on the settings page. (Code inspired by the Live Blogroll plugin by Vladimir Prelovac).
 Author: Michael Pedzotti
 Author URI: http://www.michaelpedzotti.com
@@ -45,7 +45,7 @@ define('SBR_URL',WP_PLUGIN_URL.'/'.SBR_PLUGIN_NAME);
 define('SBR_PATH',WP_PLUGIN_DIR.'/'.SBR_PLUGIN_NAME);
 define('SBR_ADMIN_PAGE','sbr_admin');
 define('SBR_ADMIN_URL',admin_url().'options-general.php?page='.SBR_ADMIN_PAGE);
-$spicy_blogroll_vers = 0.1;
+$spicy_blogroll_vers = 0.11;
 update_option(SHORT_NAME."_version",$spicy_blogroll_vers);
 register_activation_hook(__FILE__,'sbr_activate_action');
 add_action('wp_print_scripts', 'SpicyBlogRoll_ScriptsAction');
