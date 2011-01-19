@@ -6,7 +6,7 @@ function stripHTML(oldString) {
 }
 jQuery(document).ready(function($){
   // connect to hover event of <a> in .widget_links
-  $('.widget_links a').hover(
+  $('a.spicy-blogroll').hover(
   function(e){
     if (!e) {e = window.event;}
 	// create a new div and append it to the link

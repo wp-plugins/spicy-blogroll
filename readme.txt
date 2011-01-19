@@ -3,7 +3,7 @@ Contributors: michaelpedzotti
 Donate link: http://www.michaelpedzotti.com/wordpress-plugins/spicy-blogroll/
 Tags:  blogroll, ajax, sidebar, links, RSS, bookmarks, jquery
 Requires at least: 2.6
-Tested up to: 3.0.1
+Tested up to: 3.0.4
 Stable tag: trunk
 
 Spices up your regular Blogroll by showing an Ajax popup with post excerpts for each link in your Blogroll. Fully customizable via settings page.
@@ -26,8 +26,11 @@ Plugin by Michael Pedzotti. Concept is based on the Live Blogroll plugin by Vlad
 
 == Changelog ==
 
-= 0.11 =
-Changed a global variable name ($options=>$sbr_options) to avoid clashing with one or more other plugins.
+= 1.0.0 =
+* Plugin now adds a unique link class to blogroll hyperlinks to allow the JQuery hook to identify blogrolls in practically any theme. Previously the plugin would not operate in some themes due to differences in class choices by theme developers.
+
+= 0.1.1 =
+* Changed a global variable name ($options=>$sbr_options) to avoid clashing with one or more other plugins.
 
 = 0.1 =
 * Initial release
@@ -35,16 +38,16 @@ Changed a global variable name ($options=>$sbr_options) to avoid clashing with o
 
 == Upgrade Notice ==
 
-= 0.11 =
-Changed a global variable name ($options=>$sbr_options) to avoid clashing with one or more other plugins.
-If the plugin control panel was not showing properly it was because of this clash.
+= 1.0.0 =
+* For the plugin to function correctly you must deactivate your current plugin if you are installing this manually, upload the new files, then reactivate. Auto-updating the plugin via your blog dashboard is the best method as this is done for you.
+
 
 == Installation ==
 
 1. Upload the whole plugin folder to your /wp-content/plugins/ folder.
 2. Go to the Plugins page and activate the plugin.
 3. Click on the settings link under the plugin name or manually navigate to the settings page.
-4. Use the Options page to customize the plugin.
+4. Use the Options page to customize the plugin to suit your blog.
 
 
 == Screenshots ==
@@ -67,7 +70,7 @@ You should have received a copy of the GNU General Public License along with Cat
 
 = How does it work? =
 
-Spicy Blogroll uses Javascript and Ajax to dynamically retrieve a number of recent posts from the sites in your Blogroll. The posts are then displayed in a pop-up hover box near the mouse position.
+Spicy Blogroll uses Javascript and Ajax to dynamically retrieve a number of recent posts from the sites in your Blogroll. The posts are then displayed in a pop-up hover box near the mouse position based on coordinates you set in the settings panel.
 
 Spicy Blogroll will first attempt to retrieve the RSS feed from the link supplied in your Blogroll data. If not successful, it will then attempt several other feed locations to autodiscover the feed. If found this feed will be used to populate several entries (you can set the number) in the pop-up.
 

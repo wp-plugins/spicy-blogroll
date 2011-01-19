@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Spicy Blogroll
-Version: 0.11
+Version: 1.0.0
 Description: Spices up your regular Blogroll by showing recent post excerpts for each of your links in the Blogroll widget. Once you've set up the plugin write a post about it and let everyone on your blogroll know about it. Change options on the settings page. (Code inspired by the Live Blogroll plugin by Vladimir Prelovac).
 Author: Michael Pedzotti
 Author URI: http://www.michaelpedzotti.com
 Plugin URI: http://www.michaelpedzotti.com/wordpress-plugins/spicy-blogroll
 */
 /*
-Copyright 2010  Michael Pedzotti  (email : michael@nine95.com)
+Copyright 2010~2011  Michael Pedzotti  (email : michael@nine95.com)
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -45,7 +45,7 @@ define('SBR_URL',WP_PLUGIN_URL.'/'.SBR_PLUGIN_NAME);
 define('SBR_PATH',WP_PLUGIN_DIR.'/'.SBR_PLUGIN_NAME);
 define('SBR_ADMIN_PAGE','sbr_admin');
 define('SBR_ADMIN_URL',admin_url().'options-general.php?page='.SBR_ADMIN_PAGE);
-$spicy_blogroll_vers = 0.11;
+$spicy_blogroll_vers = '1.0.0';
 update_option(SHORT_NAME."_version",$spicy_blogroll_vers);
 register_activation_hook(__FILE__,'sbr_activate_action');
 add_action('wp_print_scripts', 'SpicyBlogRoll_ScriptsAction');
@@ -53,6 +53,7 @@ add_action('wp_head', 'SpicyBlogRoll_HeadAction');
 add_action('admin_menu', 'sbr_add_admin');
 add_action('admin_init', 'sbr_admin_init');
 add_action('admin_head', 'sbr_HeadAction');
+add_filter('wp_list_bookmarks', 'spicy_blogroll_links'); 
 // action and filter rountines
 function sbr_activate_action(){
   global $sbr_options;
@@ -95,6 +96,15 @@ function sbr_admin_init(){
       wp_enqueue_style("sbr_style", SBR_URL."/spicy-blogroll-admin.css", false, "1.0", "all");
 	}
   }
+}
+// Add spicy-blogroll class to blogroll links
+function spicy_blogroll_links( $bookmarks_string ) {
+    $bookmarks_string = str_replace( 
+        '<a href', // Replace this
+        '<a class="spicy-blogroll" href', // With this
+        $bookmarks_string // In this
+    );
+    return $bookmarks_string;
 }
 // add action to load js for blogroll pop-up
 function SpicyBlogRoll_ScriptsAction(){
@@ -274,7 +284,7 @@ function sbr_admin(){
         echo '</div></div><br />';
         break;
       case "title":
-        echo '<p>To customise the '.PLUGIN_NAME.' plugin, adjust the options below. Click on the blue plus sign to expand each section. Click again on the minus sign to shrink. You can also visit the <a href="http://www.michaelpedzotti.com/" title="Software Tools for Bloggers">author page</a>, <a href="http://nine95.com/support" title="helpdesk">submit a support request</a>, follow <a href="http://twitter.com/michaelpedzotti/">Michael Pedzotti on Twitter</a> or visit the plugin page in the WordPress Plugin Directory (link to be added).</p>';
+        echo '<p>Customise '.PLUGIN_NAME.', by adjusting the options below. Click on the blue plus sign to expand each section. Click again on the minus sign to shrink. You can also visit the <a href="http://www.michaelpedzotti.com/" title="Software Tools for Bloggers" target="_blank">author page</a>, <a href="http://nine95.com/support" title="helpdesk" target="_blank">submit a support request</a>, follow <a href="http://twitter.com/michaelpedzotti/" target="_blank">Michael Pedzotti on Twitter</a> or visit the plugin page in the <a href="http://wordpress.org/extend/plugins/spicy-blogroll/" title="spicy blogroll" target="_blank">WordPress Plugin Directory</a>.</p>';
         break;
       case 'text':?>
 		<div class="sbr_input sbr_text">
@@ -359,18 +369,18 @@ function sbr_admin(){
     <input type="hidden" name="action" value="save" /> 
   </form>
   <form method="post">
-    <p class="submit"><span class="warning">Warning, pressing the following button will restore defaults. Any changes you have made will be lost.<br /></span>
-    <input class="button-secondary" name="reset" type="submit" value="Use Defaults" />
+    <p class="submit"><span class="warning">Warning, pressing the following button will restore defaults. Any changes you have made will be lost.<br /></span></p>
+    <p><input class="button-secondary" name="reset" type="submit" value="Use Defaults" />
     <input type="hidden" name="action" value="reset" />
     </p>
   </form>
   <div class="sbr_notes">
   <h2><img src="<?php echo SBR_URL; ?>/images/info_button_32.png" height="32" width="32" alt="more info " /> Notes:</h2>
-  <ol><li>You can change any number of options at once. Pressing any of the <em>Save changes</em> buttons will save all changes.</li><li>If your blogroll is on the left side of your blog try an <strong>X-Offset</strong> of between 0 and 10. If it is near the top of your page then try a <strong>Y-Offset</strong> value closer to 0 or slightly positive.</li><li>X and Y offsets are measured from the <strong>top-left</strong> corner of the pop-up window.</li><li>Deactivating and reactivating the plugin will restore default settings.</li></ol>
-  <h2><img src="<?php echo SBR_URL; ?>/images/add_32.png" height="32" width="32" alt="like this " /> Like this plugin?</h2><p><strong>No donation required</strong>, would you please add <a href="http://www.michaelpedzotti.com/" title="Software Tools for Bloggers"><em>http://www.michaelpedzotti.com/</em></a> to your blogroll. Tweet about it @michaelpedzotti and I will visit your blog. Add this to your blogroll (links) widget.</p><ul><li><strong>Name:</strong> Software Tools for Bloggers</li><li><strong>Web address:</strong> http://www.michaelpedzotti.com/</li><li><strong>Description:</strong> Useful plugins to add to your blog</li></ul><p>Visit <a href="http://www.michaelpedzotti.com/wordpress-plugins/" title="Other WP plugins by Michael Pedzotti"><em>http://www.michaelpedzotti.com/wordpress-plugins/</em></a> to see the other plugins I've developed or I'm working on.</p>
-  <h2><img src="<?php echo SBR_URL; ?>/images/page_text_warning_32.png" height="32" width="32" alt="warning " /> IE8 Users</h2><p><strong>If you are using IE8</strong> the CSS for this options window is buggy. Take a moment to view it in Firefox to see what it is really like. Something in the spicy-blogroll-admin.css file is breaking it with IE8. If you have worked it out, please submit helpful suggestions via the <a href="http://nine95.com/support" title="submit a suggestion to fix IE8 formatting">support desk</a>. Meanwhile, expand the bottom options panel, tick the checkbox beside 'IE8 Temp Fix' and press any of the 'Save changes' buttons. I am sure that it'll get fixed real soon.</p>
+  <ol><li>You can change any number of options at once. Pressing any of the <em>Save changes</em> buttons will save all changes.</li><li>If your blogroll is on the left side of your blog try an <strong>X-Offset</strong> of between 0 and 10. If it is near the top of your page then try a <strong>Y-Offset</strong> value closer to 0 or slightly positive.</li><li>X and Y offsets are measured from the <strong>top-left</strong> corner of the <u>pop-up window</u>.</li><li>Deactivating and reactivating the plugin will restore default settings.</li></ol>
+  <h2><img src="<?php echo SBR_URL; ?>/images/add_32.png" height="32" width="32" alt="like this " /> Like this plugin?</h2><p><strong>No donation required</strong>, but would you please add <a href="http://www.michaelpedzotti.com/" title="Software Tools for Bloggers"><em>http://www.michaelpedzotti.com/</em></a> to your blogroll. Tweet about the plugin @michaelpedzotti and I will visit your blog. Add the following to your blogroll (links) widget.</p><ul><li><strong>Name:</strong> Software Tools for Bloggers</li><li><strong>Web address:</strong> http://www.michaelpedzotti.com/</li><li><strong>Description:</strong> Useful plugins to add to your blog</li></ul><p>Visit <a href="http://www.michaelpedzotti.com/wordpress-plugins/" title="Other WP plugins by Michael Pedzotti" target="_blank"><em>http://www.michaelpedzotti.com/wordpress-plugins/</em></a> to see the other plugins I've developed or I'm working on and visit <a href="http://nine95.com/michael-pedzotti-future-projects/" title="Michael Pedzotti projects for 2011" target="_blank"><em>http://nine95.com/michael-pedzotti-future-projects/</em></a> and sign up to be a beta tester for the new plugins coming out this year.</p>
+  <h2><img src="<?php echo SBR_URL; ?>/images/page_text_warning_32.png" height="32" width="32" alt="warning " /> IE8 Users</h2><p><strong>If you're using IE8</strong> the CSS for this options window is buggy. Take a moment to view it in Firefox to see what it really looks like. Something in the spicy-blogroll-admin.css file is breaking it with IE8. If you have worked it out, please submit helpful suggestions via the <a href="http://nine95.com/support" title="submit a suggestion to fix IE8 formatting">support desk</a>. Meanwhile, expand the bottom options panel, tick the checkbox beside 'IE8 Temp Fix' and press any of the 'Save changes' buttons. I am hoping that it'll get fixed real soon.</p>
   
-  <p>Icons:<a href="http://www.woothemes.com/2009/09/woofunction/"> WooFunction</a></p></div></div><?php
+  <p>Icons: <a href="http://www.woothemes.com/2009/09/woofunction/">WooFunction</a></p></div></div><?php
 }
 // it does what it says it does to keep some info away from prying eyes - unscrupulous visitors that is :-)
 function scramble($text1,$rng){
